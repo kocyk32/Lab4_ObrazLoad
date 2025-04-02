@@ -131,12 +131,14 @@
             // 
             // bGreen
             // 
+            bGreen.BackColor = Color.FromArgb(192, 255, 192);
             bGreen.Location = new Point(12, 174);
             bGreen.Name = "bGreen";
             bGreen.Size = new Size(86, 23);
             bGreen.TabIndex = 8;
             bGreen.Text = "OnlyGreen";
-            bGreen.UseVisualStyleBackColor = true;
+            bGreen.UseVisualStyleBackColor = false;
+            bGreen.Click += bGreen_Click;
             // 
             // Form1
             // 

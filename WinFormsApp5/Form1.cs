@@ -107,8 +107,43 @@ namespace WinFormsApp5
             if (pictureBox1.Image != null)
             {
                 Bitmap original = new Bitmap(pictureBox1.Image);
-                original.RotateFlip(RotateFlipType.Rotate180FlipNone); // obrót o 180 stopni (wystarczy by by³ upside down)
+                original.RotateFlip(RotateFlipType.Rotate180FlipNone); 
                 pictureBox1.Image = original;
+            }
+            else
+            {
+                MessageBox.Show("Najpierw za³aduj obraz!", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void bGreen_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Bitmap original = new Bitmap(pictureBox1.Image);
+                Bitmap greenOnly = new Bitmap(original.Width, original.Height);
+
+                for (int y = 0; y < original.Height; y++)
+                {
+                    for (int x = 0; x < original.Width; x++)
+                    {
+                        Color pixel = original.GetPixel(x, y);
+
+                        // Warunek: zielony musi byæ dominuj¹cym kolorem
+                        if (pixel.G > pixel.R + 30 && pixel.G > pixel.B + 30)
+                        {
+                            // Zostawiamy zielony piksel
+                            greenOnly.SetPixel(x, y, pixel);
+                        }
+                        else
+                        {
+                            // Zamieniamy na czarny
+                            greenOnly.SetPixel(x, y, Color.Black);
+                        }
+                    }
+                }
+
+                pictureBox1.Image = greenOnly;
             }
             else
             {
