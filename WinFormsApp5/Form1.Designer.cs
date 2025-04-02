@@ -34,6 +34,9 @@
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
             button1 = new Button();
+            button2 = new Button();
+            bUDown = new Button();
+            bGreen = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -103,11 +106,46 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ActiveCaption;
+            button2.Location = new Point(12, 116);
+            button2.Name = "button2";
+            button2.Size = new Size(86, 23);
+            button2.TabIndex = 6;
+            button2.Text = "Invert Colors";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // bUDown
+            // 
+            bUDown.BackColor = SystemColors.ActiveCaption;
+            bUDown.Location = new Point(12, 145);
+            bUDown.Name = "bUDown";
+            bUDown.Size = new Size(86, 23);
+            bUDown.TabIndex = 7;
+            bUDown.Text = "Upside Down";
+            bUDown.TextImageRelation = TextImageRelation.TextAboveImage;
+            bUDown.UseVisualStyleBackColor = false;
+            bUDown.Click += button3_Click;
+            // 
+            // bGreen
+            // 
+            bGreen.Location = new Point(12, 174);
+            bGreen.Name = "bGreen";
+            bGreen.Size = new Size(86, 23);
+            bGreen.TabIndex = 8;
+            bGreen.Text = "OnlyGreen";
+            bGreen.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 447);
+            Controls.Add(bGreen);
+            Controls.Add(bUDown);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(radioButton3);
             Controls.Add(radioButton2);
@@ -130,5 +168,8 @@
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private Button button1;
+        private Button button2;
+        private Button bUDown;
+        private Button bGreen;
     }
 }

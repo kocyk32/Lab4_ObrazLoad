@@ -71,5 +71,50 @@ namespace WinFormsApp5
             Image obrazek = pictureBox1.Image;
             pictureBox1.Image.RotateFlip(RotateFlipType.Rotate180FlipX);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Bitmap original = new Bitmap(pictureBox1.Image);
+                Bitmap inverted = new Bitmap(original.Width, original.Height);
+
+                for (int y = 0; y < original.Height; y++)
+                {
+                    for (int x = 0; x < original.Width; x++)
+                    {
+                        Color pixelColor = original.GetPixel(x, y);
+                        Color invertedColor = Color.FromArgb(
+                            pixelColor.A,
+                            255 - pixelColor.R,
+                            255 - pixelColor.G,
+                            255 - pixelColor.B
+                        );
+                        inverted.SetPixel(x, y, invertedColor);
+                    }
+                }
+
+                pictureBox1.Image = inverted;
+            }
+            else
+            {
+                MessageBox.Show("Najpierw za³aduj obraz!", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                Bitmap original = new Bitmap(pictureBox1.Image);
+                original.RotateFlip(RotateFlipType.Rotate180FlipNone); // obrót o 180 stopni (wystarczy by by³ upside down)
+                pictureBox1.Image = original;
+            }
+            else
+            {
+                MessageBox.Show("Najpierw za³aduj obraz!", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
+
